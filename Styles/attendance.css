@@ -1,0 +1,36 @@
+#mainSection{
+    min-height: 250px;
+    height: 55%;
+    padding: 3% 5%;
+}
+#innerSection{
+    height: 60%;
+}
+.attendanceForm{
+    height: 90%;
+}
+span{
+    align-self: center;
+    color: var(--color4);
+    display: none;
+}
+.inp{
+    padding: 1.5%;
+    height: 2rem;
+    outline-color: var(--color2);
+}
+.empty{
+    outline-color: var(--color4);
+}
+.submit{
+    height: 2.2rem;
+    width: 50%;
+    margin-left: 25%;
+}
+
+#departure>label{
+    margin-left: 2%;
+}
+#departure{
+    display: none;
+}

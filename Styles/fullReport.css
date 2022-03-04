@@ -1,0 +1,17 @@
+.fullR{
+    color: var(--color2);
+    border: none;
+    border-bottom: 2px solid var(--color2);
+}
+td{
+    /* min-width: 150px !important; */
+    width: 33.3% !important;
+}
+
+/* madia query */
+@media (max-width: 900px), screen and (orientation: portrait){ 
+    .fullR{
+        border: none;
+        border-left: 2px solid var(--color2);
+    }
+}

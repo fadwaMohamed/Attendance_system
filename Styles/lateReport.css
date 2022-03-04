@@ -1,0 +1,14 @@
+.lateR{
+    color: var(--color2);
+    border: none;
+    border-bottom: 2px solid var(--color2);
+}
+
+
+/* madia query */
+@media (max-width: 900px), screen and (orientation: portrait){ 
+    .lateR{
+        border: none;
+        border-left: 2px solid var(--color2);
+    }
+}

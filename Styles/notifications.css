@@ -1,0 +1,66 @@
+#bell{
+    border: none;
+    border-bottom: 2px solid var(--color2);
+}
+.fa-bell{
+    color: var(--color2);
+}
+
+#notification{
+    margin: 40px auto;
+    min-width: 400px;
+    width: 50%;
+    height: 150px;
+    border-radius: 10px;
+    color: var(--grey);
+    background-color: var(--color2);
+    box-shadow: 0 0 30px rgba(44, 67, 110, 0.08);
+}
+#notification>h3, #notification>h4{
+    color: var(--white);
+    border-radius: 10px 5px;
+    height: 25px;
+    padding: 1%;
+    text-align: center;
+}
+.data{
+    padding: 1%;
+    width: 100%;
+    height: 100px;
+    border-radius: 0 0 10px 10px;
+    background-color: var(--lightgrey);
+    position: relative;
+}
+.ok, .no{
+    width: 30px;
+    height: 30px;
+    background-color: var(--color2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition: all 0.3s;
+}
+.data .fa{
+    color: var(--lightgrey);
+}
+.ok{
+    top: 50px;
+    right: 20px;
+}
+.no{
+    top: 50px;
+    right: 60px;
+}
+
+.ok:hover, .no:hover{
+    cursor: pointer;
+}
+
+#noNotification{
+    color: var(--color2);
+    text-align: center;
+    margin-top: 140px;
+    font-size: 2.5rem;
+}

@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* all colors in the website */
+:root{
+    --color1: #dddd88;
+    --color2: #0099cc;
+    --color4: #ff8000;
+    --white: whitesmoke;
+    --grey: rgb(99, 93, 93);
+    --lightgrey: #f3f3f3;
+}
+/* --------------- scroller --------------- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+/* (background-color) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+/* its color */
+::-webkit-scrollbar-thumb {
+    background: #dddddd; 
+}
+/* hover color */
+::-webkit-scrollbar-thumb:hover {
+    background: #b1b1b1; 
+}

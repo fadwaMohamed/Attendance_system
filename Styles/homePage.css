@@ -1,0 +1,35 @@
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../Images/background.jpg);
+    background-position: center;
+    background-size: cover;
+    overflow: auto;
+    padding: 10%;
+}
+h1{
+    color: var(--grey);
+    text-align: center;
+    font: bold 4rem 'Lucida Console';
+}
+section{
+    padding-top: 10%;
+    text-align: center;
+}
+.button{
+    color: var(--white);
+    min-width: 100px;
+    min-height: 2rem;
+    width: 10vw;
+    padding: 1%;
+    background-color: var(--color2);
+    border: none;
+    border-radius: 15px;
+    margin: 2vw;
+    font-size: 1.1rem;
+}
+.button:hover{
+    cursor: pointer;
+}
+

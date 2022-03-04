@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Excuse Rerort Page</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../Styles/main.css">
+        <link rel="stylesheet" href="../Styles/dashboard.css">
+        <link rel="stylesheet" href="../Styles/excuse_lateReport.css">
+        <link rel="stylesheet" href="../Styles/fullReport.css">
+
+        <script src="../Script/fullReport.js" type="module"></script>
+        <script src="../Script/navigation.js" type="module"></script> 
+
+    </head>
+    <body>
+       <header class="header">
+            <h1>Welcome</h1>
+            <div id="menu"><i class="fa fa-bars" aria-hidden="true"></i></div>
+            <div id="mainCategories">
+                <p class="allR"><i class="fa fa-users" aria-hidden="true"></i> &nbsp; All Employees</p>
+                <p class="fullR"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Full Report</p>
+                <p class="lateR"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Late Report</p>
+                <p class="excuseR"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Excuse Report</p>
+            </div>
+            <div id="bell"><i class="fa fa-bell" aria-hidden="true"></i></div>
+            <div id="logout" title="log out"><i class="fa fa-sign-out" aria-hidden="true"></i></div>
+       </header> 
+
+       <section id="l_eReport">
+
+            <div class='calendarHead'>
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <h3> <i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp; <span id="todayDate"></span> </h3>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+
+            <table id="TableL_E">
+                <thead>
+                    <tr>
+                        <td> Employee Name </td>
+                        <td> Lates Times </td>
+                        <td> Excuse Times </td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+            <div id="noData">
+                No data in that month !!!
+            </div>
+
+       </section>
+
+       <aside>
+           <section>
+                <div class="header">
+                    <h1>Welcome</h1>
+                    <span class="close">&times;</span>
+                </div>
+                <div id="sideCategories">
+                    <p class="allR"><i class="fa fa-users" aria-hidden="true"></i> &nbsp; All Employees</p>
+                    <p class="fullR"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Full Report</p>
+                    <p class="lateR"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Late Report</p>
+                    <p class="excuseR"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Excuse Report</p>
+                </div>
+           </section>
+       </aside>
+    </body>
+</html>

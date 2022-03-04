@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Dashboard Page</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../Styles/main.css">
+        <link rel="stylesheet" href="../Styles/dashboard.css">
+        <link rel="stylesheet" href="../Styles/allEmployee.css">
+
+        <script src="../Script/allEmployees.js" type="module"></script> 
+        <script src="../Script/navigation.js" type="module"></script>
+
+    </head>
+    <body>
+       <header class="header">
+            <h1>Welcome</h1>
+            <div id="menu"><i class="fa fa-bars" aria-hidden="true"></i></div>
+            <div id="mainCategories">
+                <p class="allR"><i class="fa fa-users" aria-hidden="true"></i> &nbsp; All Employees</p>
+                <p class="fullR"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Full Report</p>
+                <p class="lateR"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Late Report</p>
+                <p class="excuseR"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Excuse Report</p>
+            </div>
+            <div id="bell"><i class="fa fa-bell" aria-hidden="true"></i></div>
+            <div id="logout" title="log out"><i class="fa fa-sign-out" aria-hidden="true"></i></div>
+       </header> 
+
+       <section id="empTable">
+            <table id="allEmployees">
+                <thead>
+                    <tr>
+                        <td id="firstName"> First Name &nbsp; <i class="fa fa-sort" aria-hidden="true"></i></td>
+                        <td id="lastName"> Last Name &nbsp; <i class="fa fa-sort" aria-hidden="true"></i></td>
+                        <td id="address" class="morewidth"> Adsress &nbsp; <i class="fa fa-sort" aria-hidden="true"></i></td>
+                        <td id="email" class="morewidth2"> Email &nbsp; <i class="fa fa-sort" aria-hidden="true"></i></td>
+                        <td id="age"> Age &nbsp; <i class="fa fa-sort" aria-hidden="true"></i></td>
+                        <td id="userName" class="morewidth"> User Name &nbsp; <i class="fa fa-sort" aria-hidden="true"></i></td>
+                        <td class="morewidth"> Password </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+       </section>
+
+       <aside>
+           <section>
+                <div class="header">
+                    <h1>Welcome</h1>
+                    <span class="close">&times;</span>
+                </div>
+                <div id="sideCategories">
+                    <p class="allR"><i class="fa fa-users" aria-hidden="true"></i> &nbsp; All Employees</p>
+                    <p class="fullR"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Full Report</p>
+                    <p class="lateR"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Late Report</p>
+                    <p class="excuseR"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Excuse Report</p>
+                </div>
+           </section>
+       </aside>
+    </body>
+</html>

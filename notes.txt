@@ -1,0 +1,17 @@
+Admin:
+userName: AdminFEMASA
+password: 54197531
+
+------------------------------------
+
+Security Man (attendance):
+userName: security756124
+password: 20475131
+
+------------------------------------
+
+with one employee
+
+------------------------------------
+
+email will be send after admin confirmation.

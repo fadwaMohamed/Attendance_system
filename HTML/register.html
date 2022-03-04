@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Register Page</title>
+
+        <link rel="stylesheet" href="../Styles/main.css">
+        <link rel="stylesheet" href="../Styles/main_parts.css">
+        <link rel="stylesheet" href="../Styles/register.css" />
+
+        <script src="../Script/register.js" type="module"></script>
+    </head>
+    <body>
+        <section id="mainSection">
+            <h1>Register</h1>
+            <form name="register" method="post" class="form registerForm" action="waiting.html" >
+                <section id="innerSection">
+                    <label for="firstname">First Name</label>
+                    <div>
+                        <input type="text" name="firstname" id="firstname" class="inp" placeholder="firstname">
+                        <span>Invalid</span>
+                    </div>
+                    <label for="lastname">Last Name</label>
+                    <div>
+                        <input type="text" name="lastname" id="lastname" class="inp" placeholder="lastname">
+                        <span>Invalid</span>
+                    </div>
+                    <label for="address">Address</label>
+                    <div>
+                        <input type="text" name="address" id="address" class="inp" placeholder="address">
+                        <span>Invalid</span>
+                    </div>
+                    <label for="email">Email</label>
+                    <div>
+                        <input type="email" name="email" id="email" class="inp" placeholder="email">
+                        <span>Invalid</span>
+                    </div>
+                    <label for="age">Age</label>
+                    <div>
+                        <input type="text" name="age" id="age" class="inp" placeholder="age">
+                        <span>Invalid</span>
+                    </div>
+                </section>
+
+                <input type="submit" value="Register" class="submit" id="register">
+                <p>Do you have an account? <a href="./login.html">Login.. </a></p>
+            </form>
+        </section>
+    </body>
+</html>

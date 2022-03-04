@@ -1,0 +1,94 @@
+.allR{
+    color: var(--color2);
+    border: none;
+    border-bottom: 2px solid var(--color2);
+}
+#empTable{
+    margin: 60px 10px;
+    overflow: auto;
+}
+/* table */
+#allEmployees{
+    width: 80%;
+    margin: auto;
+    color: var(--grey);
+    border-collapse: collapse;
+}
+td{
+    width: fit-content;
+    padding: 0.5rem;
+    height: 2.5rem;
+    position: relative;
+}
+thead>tr>td{
+    font-weight: bold;
+}
+thead>tr{
+    background-color: var(--color2);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+}
+tbody>tr{
+    border-bottom: 3px solid var(--lightgrey);
+}
+
+button{
+    background-color: var(--color2);
+    color: var(--lightgrey);
+    border: none;
+    transition: all 0.3s;
+}
+button:hover{
+    cursor: pointer;
+    background-color: inherit;
+    color: var(--color2);
+}
+.save, .cancel, .delete, .edit{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+.changePass{
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 5% 7%;
+}
+.cancel, .save{
+    display: none;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+input{
+    display: none;
+    width: 100%;
+    border: none;
+    outline: none;
+    position: absolute;
+    background-color: var(--grey);
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    padding-left: 0.5rem;
+    display: none;
+}
+thead>tr>td{
+    cursor: pointer;
+}
+#error{
+    color: var(--color4);
+    width: fit-content;
+    margin-left: 15px;
+}
+
+/* madia query */
+@media (max-width: 900px), screen and (orientation: portrait){ 
+    .allR{
+        border: none;
+        border-left: 2px solid var(--color2);
+    }
+    #allEmployees{
+        width: 100%;
+    }
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Profile Page</title>
+
+        <link rel="stylesheet" href="../Styles/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">        
+        <link rel="stylesheet" href="../Styles/profilePage.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <script src="../Script/profilePage.js" type="module"></script> 
+
+    </head>
+    <body>
+        <header id="header">
+            <!-- <h1>Welcome</h1> -->
+        </header>
+
+        <aside id="aside">
+            <input type="button" value="Personal Data" id="pData">
+            <input type="button" value="Monthly Reports" id="mReport">
+            <input type="button" value="Daily Reports" id="dReport">
+            <input type="button" value="Log out" id="logOut">
+        </aside>
+
+        <section id="mainSection">
+            <section id="innerSection">
+                <section id="data">
+                    <div class="label">First Name</div>
+                    <div id="firstName"></div>
+                    <div class="label">Last Name</div>
+                    <div id="lastName"></div>
+                    <div class="label">Adress</div>
+                    <div id="address"></div>
+                    <div class="label">Email</div>
+                    <div id="email"></div>
+                    <div class="label">Age</div>
+                    <div id="age"></div>
+                </section>
+
+                <section id="monthly">
+                    <div class='calendarHead'>
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <h3> <i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp; <span id="year">2022</span> </h3>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                    <div id="tempHead"></div>
+
+                    <section id="monthly1">
+                        <article id="0" class="calendar">January</article>
+                        <article id="1" class="calendar">February</article>
+                        <article id="2" class="calendar">March</article>
+                        <article id="3" class="calendar">April</article>
+                        <article id="4" class="calendar">May</article>
+                        <article id="5" class="calendar">June</article>
+                        <article id="6" class="calendar">July</article>
+                        <article id="7" class="calendar">August</article>
+                        <article id="8" class="calendar">September</article>
+                        <article id="9" class="calendar">October</article>
+                        <article id="10" class="calendar">November</article>
+                        <article id="11" class="calendar">December</article>
+                    </section>
+
+                    <section id="monthly2">
+                        <h2 class="noReport">No Data</h2>
+                        <div id="wrapperTable">
+                            <table id="monthlyTable" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Attend time</th>
+                                        <th>Departure time</th>
+                                        <th>Late</th>
+                                        <th>Excuse</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <h4>Number of lates: <span id="lates"></span></h4>
+                        <h4>Number of Excuses: <span id="excuses"></span></h4>
+                        <input type="button" value="back" id="back"/>
+                    </section>
+                </section>
+
+                <section id="daily">
+                    <div class='calendarHead'>
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <h3> <i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp; <span id="todayDate"></span> </h3>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+
+                    <h2 class="noReport">No Data</h2>
+                    <article id="dayReport">
+                        <div>
+                            <div class="label">Attend time:</div>
+                            <div id="checkIn"></div>
+                        </div>
+                        <div>
+                            <div class="label">Departure time:</div>
+                            <div id="checkOut"></div>
+                        </div>
+                        <div>
+                            <div class="label">Late:</div>
+                            <div id="late"></div>
+                        </div>
+                        <div>
+                            <div class="label">Excuse:</div>
+                            <div id="excuse"></div>
+                        </div>
+                    </article>
+                </section>
+            </section>
+        </section>
+    </body>
+</html>
