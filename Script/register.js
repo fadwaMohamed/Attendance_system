@@ -16,6 +16,7 @@ window.addEventListener('load', function() {
     validInput(age, validAge);
 
     document.forms[0].addEventListener('submit', function(event) {
+
         if(!validName(firstname.value) || !validName(lastname.value) || !validAddress(address.value) || !validEmail(email.value) || !validAge(age.value) || !isUniqueEmail(email.value, email))
             event.preventDefault();
         else {
@@ -33,7 +34,7 @@ window.addEventListener('load', function() {
 
             newEmployees.push(new employee(convertIntoObject(firstname.value, lastname.value, address.value, email.value, age.value, randomUsername, randomPassword, false, newid)));
             saveNewEmpData(newEmployees);
-
+ 
             setTimeout('location.replace("../HTML/waiting.html")', 500);
         }
     })
@@ -45,31 +46,28 @@ function validInput(inputname, isvalid) {
     inputname.addEventListener('blur', function() {
         if(inputname.id=="email") {
             if(!isUniqueEmail(employees, inputname.value, -1) || !isUniqueEmail(newEmployees, inputname.value, -1)) {
-                inputname.nextElementSibling.textContent = "exist!"
-                inputname.nextElementSibling.style.display = "inline";
-                inputname.focus();
-                if(!inputname.classList.contains("error")) inputname.classList.add("error");
+                inputname.nextElementSibling.textContent = "Exist Email"
+                if(!inputname.classList.contains("is-invalid")) inputname.classList.add("is-invalid");
             }
             else if(!isvalid(inputname.value)) {
-                inputname.nextElementSibling.textContent = "Invalid";
-                inputname.nextElementSibling.style.display = "inline";
-                inputname.focus();
-                if(!inputname.classList.contains("error")) inputname.classList.add("error");
+                inputname.nextElementSibling.textContent = "Invalid Email";
+                if(!inputname.classList.contains("is-invalid")) inputname.classList.add("is-invalid");
             }
             else {
-                inputname.nextElementSibling.textContent = "Invalid";
-                inputname.nextElementSibling.style.display = "none";
+                inputname.nextElementSibling.textContent = "Invalid Email";
+                if(inputname.classList.contains("is-invalid")) inputname.classList.remove("is-invalid");
+                
+                inputname.classList.add("is-valid");
             }
         }
         else {
             if(!isvalid(inputname.value)) {
-                inputname.nextElementSibling.style.display = "inline";
-                inputname.focus();
-                if(!inputname.classList.contains("error")) inputname.classList.add("error");
+                if(!inputname.classList.contains("is-invalid")) inputname.classList.add("is-invalid");
             }
             else {
-                inputname.nextElementSibling.style.display = "none";
-                if(inputname.classList.contains("error")) inputname.classList.remove("error");
+                if(inputname.classList.contains("is-invalid")) inputname.classList.remove("is-invalid");
+                
+                inputname.classList.add("is-valid");
             }
         }
     })

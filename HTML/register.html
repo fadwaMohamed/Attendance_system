@@ -2,50 +2,84 @@
 <html>
     <head>
         <meta charset="utf-8">
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <title>Register Page</title>
 
+        <script src="https://kit.fontawesome.com/4f4a55132b.js" crossorigin="anonymous"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
         <link rel="stylesheet" href="../Styles/main.css">
-        <link rel="stylesheet" href="../Styles/main_parts.css">
+        <link rel="stylesheet" href="../Styles/log_reg_attend.css">
         <link rel="stylesheet" href="../Styles/register.css" />
 
         <script src="../Script/register.js" type="module"></script>
     </head>
     <body>
-        <section id="mainSection">
-            <h1>Register</h1>
-            <form name="register" method="post" class="form registerForm" action="waiting.html" >
-                <section id="innerSection">
-                    <label for="firstname">First Name</label>
-                    <div>
-                        <input type="text" name="firstname" id="firstname" class="inp" placeholder="firstname">
-                        <span>Invalid</span>
-                    </div>
-                    <label for="lastname">Last Name</label>
-                    <div>
-                        <input type="text" name="lastname" id="lastname" class="inp" placeholder="lastname">
-                        <span>Invalid</span>
-                    </div>
-                    <label for="address">Address</label>
-                    <div>
-                        <input type="text" name="address" id="address" class="inp" placeholder="address">
-                        <span>Invalid</span>
-                    </div>
-                    <label for="email">Email</label>
-                    <div>
-                        <input type="email" name="email" id="email" class="inp" placeholder="email">
-                        <span>Invalid</span>
-                    </div>
-                    <label for="age">Age</label>
-                    <div>
-                        <input type="text" name="age" id="age" class="inp" placeholder="age">
-                        <span>Invalid</span>
-                    </div>
-                </section>
 
-                <input type="submit" value="Register" class="submit" id="register">
-                <p>Do you have an account? <a href="./login.html">Login.. </a></p>
+        <div class="container m-auto row align-items-center justify-content-center">
+            <form name="Login" method="post" class="row g-3 needs-validation col-10 col-md-6 bg-white p-4 mb-3" novalidate autocomplete="off">
+                
+                <h1 class="mb-4">Register</h1>
+
+                <div class="input-group has-validation mb-3">
+                    <span class="input-group-text bg-white" id="basic-addon1" for="username">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                    <input type="text" class="form-control" id="firstname" placeholder="FirstName" aria-label="firstname" aria-describedby="basic-addon1" required>
+                    <div class="invalid-feedback">
+                        Invalid name.
+                    </div>
+                </div>
+
+                <div class="input-group has-validation mb-3">
+                    <span class="input-group-text bg-white" id="basic-addon1" for="username">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                    <input type="text" class="form-control" id="lastname" placeholder="LastName" aria-label="lastname" aria-describedby="basic-addon1" required>
+                    <div class="invalid-feedback">
+                        Invalid name.
+                    </div>
+                </div>
+
+                <div class="input-group has-validation mb-3">
+                    <span class="input-group-text bg-white" id="basic-addon1" for="username">
+                        <i class="fa-solid fa-location-arrow"></i>
+                    </span>
+                    <input type="text" class="form-control" id="address" placeholder="Address" aria-label="address" aria-describedby="basic-addon1" required>
+                    <div class="invalid-feedback">
+                        Invalid address.
+                    </div>
+                </div>
+
+                <div class="input-group has-validation mb-3">
+                    <span class="input-group-text bg-white" id="basic-addon1" for="password">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+                    <input type="email" class="form-control" id="email" placeholder="E-mail" aria-label="email" aria-describedby="basic-addon1" required>
+                    <div class="invalid-feedback">
+                        Invalid Email.
+                    </div>
+                </div>
+
+                <div class="input-group has-validation mb-3">
+                    <span class="input-group-text bg-white" id="basic-addon1" for="password">
+                        <i class="fa-solid fa-cake-candles"></i>
+                    </span>
+                    <input type="text" class="form-control" id="age" placeholder="Age" aria-label="age" aria-describedby="basic-addon1" required>
+                    <div class="invalid-feedback">
+                        Invalid age.
+                    </div>
+                </div>
+    
+                <input type="submit" value="Register" class="btn btn-dark col-6 fs-5 fw-bold mx-auto my-4">
+    
+                <p>Do you have an account? <a href="./login.html" class="text-decoration-none fs-5">Login.. </a></p>
             </form>
-        </section>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
     </body>
 </html>

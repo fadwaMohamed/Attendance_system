@@ -1,0 +1,29 @@
+
+body{
+    background-image: linear-gradient(45deg, var(--lightBlue2), var(--lightBlue), var(--purple));
+}
+form{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+}
+
+input[type=submit]{
+    background-color: var(--purple) !important;
+    border: none;
+    transition: all 0.6s;
+}
+input[type=submit]:hover{
+    background-color: var(--darkPurple) !important;
+}
+a{
+    color: var(--purple);
+    transition: all 0.4s;
+}
+a:hover{
+    color: var(--darkPurple);
+}
+.btn{
+    min-height: 30px;
+    border-radius: 12px;
+    transition: all 0.6s;
+}

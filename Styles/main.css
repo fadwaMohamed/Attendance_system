@@ -32,3 +32,10 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #b1b1b1; 
 }
+
+
+/* ---------------------------------------------------------  */
+.btn:focus{
+    outline: none;
+    box-shadow: none;
+}
