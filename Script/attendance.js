@@ -10,7 +10,7 @@ window.addEventListener('load', function() {
     username.addEventListener('keyup', function() {
         let userIndex = isEmployeeExist(username.value);
         if(userIndex != -1 && employees[userIndex].attend) {
-            username.nextElementSibling.style.display = "none";
+            username.nextElementSibling.style.opacity = 0;
             departureUI();
         }
         else {
@@ -25,14 +25,14 @@ window.addEventListener('load', function() {
 
             isInputEmpty(username);
             username.nextElementSibling.textContent = "Invalid Username";
-            username.nextElementSibling.style.display = "inline";
-            setTimeout('username.nextElementSibling.style.display = "none";', 4000)
+            username.nextElementSibling.style.opacity = 1;
+            setTimeout('username.nextElementSibling.style.opacity = 0;', 4000)
             username.parentElement.style.height = "65%";
         }
         else {
             event.preventDefault();
 
-            username.nextElementSibling.style.display = "none";
+            username.nextElementSibling.style.opacity = 0;
             username.parentElement.style.height = "60%";
 
             // check if attended before or not
@@ -46,9 +46,9 @@ window.addEventListener('load', function() {
                     checkNewEmp(userIndex);
                 }
                 else {
-                    username.nextElementSibling.style.display = "inline";
+                    username.nextElementSibling.style.opacity = 1;
                     username.nextElementSibling.textContent = "already attended today!!";
-                    setTimeout('username.nextElementSibling.style.display = "none";', 4000);
+                    setTimeout('username.nextElementSibling.style.opacity = 0;', 4000);
                     username.parentElement.style.height = "65%";
                 }
             }
@@ -134,13 +134,13 @@ function departEmp(userIndex)
 
 function attendanceUI()
 {
-    document.getElementById("departure").style.display = "none";
+    document.getElementById("departure").style.opacity = 0;
     document.querySelector("input[type='submit']").value = "Confirm Attendance";
 }
 
 function departureUI()
 {
-    document.getElementById("departure").style.display = "block";
+    document.getElementById("departure").style.opacity = 1;
     document.querySelector("input[type='submit']").value = "Confirm Departure";
     document.getElementById("excuse").checked = false;
 }
