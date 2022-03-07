@@ -12,8 +12,7 @@ window.addEventListener('load', function() {
         if(isPasswordRight(indexOfEmployee, password.value, employees)) {
             event.preventDefault();
 
-            password.nextElementSibling.style.display = "none";
-            password.parentElement.style.height = "70%";
+            document.getElementById("invalid").style.opacity = 0;
         
             localStorage.setItem("currentId", [employees[indexOfEmployee].id, indexOfEmployee]);
             setTimeout('location.replace("../HTML/profilePage.html")', 1000);
@@ -22,16 +21,14 @@ window.addEventListener('load', function() {
         else if(isPasswordRight(indexOfAdmin, password.value, admins)) {
             event.preventDefault();
 
-            password.nextElementSibling.style.display = "none";
-            password.parentElement.style.height = "70%";
+            document.getElementById("invalid").style.opacity = 0;
 
             setTimeout('location.replace("../HTML/allEmployees.html")', 1000);
         }
         else if(isPasswordRightSecurity(username.value, password.value)) {
             event.preventDefault();
 
-            password.nextElementSibling.style.display = "none";
-            password.parentElement.style.height = "70%";
+            document.getElementById("invalid").style.opacity = 0;
 
             setTimeout('location.replace("../HTML/Attendance.html")', 1000);
         }
@@ -40,8 +37,7 @@ window.addEventListener('load', function() {
 
             isInputEmpty(password);
             isInputEmpty(username);
-            password.nextElementSibling.style.display = "inline";
-            password.parentElement.style.height = "80%";
+            document.getElementById("invalid").style.opacity = 1;
         }
     })
 

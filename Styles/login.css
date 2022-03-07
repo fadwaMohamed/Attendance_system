@@ -1,37 +1,44 @@
 
-#mainSection{
-    min-height: 380px;
-    padding: 3% 5%;
+body{
+    background-color: var(--lightBlue2);
 }
-#innerSection{
-    height: 85%;
+.container{
+    height: 100vh;
 }
-.loginForm{
-    height: 100%;
+form{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
 }
 
-#innerSection span{
-    margin-top: 10px;
-    align-self: center;
-    color: var(--color4);
-    display: none;
+input[type=submit]{
+    background-color: var(--purple);
+    border: none;
+    transition: all 0.6s;
 }
-.inp{
-    border-radius: 5px;
-    border: 0.5px solid var(--color2);
-    padding: 1.5%;
-    height: 2rem;
-    margin-bottom: 20px;
-    outline-color: var(--color2);
+input[type=submit]:hover{
+    background-color: var(--darkPurple);
 }
-.empty{
-    outline-color: var(--color4);
+a{
+    color: var(--purple);
 }
-.submit{
-    height: 2.2rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+a:hover{
+    color: var(--darkPurple);
 }
-#departure{
-    margin-top: 10px;
+#invalid{
+    opacity: 0;
+    color: rgb(240, 8, 8) !important;
+}
+
+.btn{
+    min-height: 30px;
+    border-radius: 12px;
+    transition: all 0.6s;
+}
+#basic-addon1{
+    border-radius: 10px 0 0 10px;
+    border-right: none;
+}
+#username, #password{
+    border-radius: 0 10px 10px 0;
+    border-left: none;
 }
