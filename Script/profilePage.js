@@ -11,8 +11,8 @@ window.addEventListener('load', function() {
     let employeeIndex = localStorage.getItem('currentId')[2];
 
     // at start display employee data
-    display("none", "none", "grid"); 
-    displayPersonalData(employeeIndex);
+    /* display("none", "none", "grid"); 
+    displayPersonalData(employeeIndex); */
 
     let reportIndex;
     for(let i=0; i<reportsEmp.reportNo; i++)
@@ -30,7 +30,7 @@ window.addEventListener('load', function() {
     else
         currentEmpReport = []
 
-    document.getElementsByTagName("header")[0].innerHTML =  `<h1>Welcome &nbsp;&nbsp; <span>${employees[employeeIndex].firstName} ${employees[employeeIndex].lastName}</span></h1>`;
+    document.getElementById("headerName").innerHTML =  `<span>${employees[employeeIndex].firstName} ${employees[employeeIndex].lastName}</span>`;
 
     this.document.getElementById("pData").addEventListener('click', function() {
         display("none", "none", "grid"); 

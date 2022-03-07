@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        
         <title>Profile Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <script src="https://kit.fontawesome.com/4f4a55132b.js" crossorigin="anonymous"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        
         <link rel="stylesheet" href="../Styles/main.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">        
-        <link rel="stylesheet" href="../Styles/profilePage.css">
+        <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet"> 
         <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="stylesheet" href="../Styles/profilePage.css">
         
         <script src="../Script/profilePage.js" type="module"></script> 
 
     </head>
-    <body>
-        <header id="header">
-            <!-- <h1>Welcome</h1> -->
+    <body data-bs-spy="scroll" data-bs-target="#home" id="home">
+        <!-- <header id="header">
+            
         </header>
 
         <aside id="aside">
@@ -115,6 +119,127 @@
                     </article>
                 </section>
             </section>
-        </section>
+        </section> -->
+
+        <!-- Nav Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container-fluid">
+
+                <a id="headerName" class="navbar-brand fs-4" href="#home"></a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#dailyReports">Daily reports</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#monthlyReports">Monthly reports</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#logOut">Log out</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        <!-- End of nav bar -->
+
+
+        <!-- home -->
+        <div class=" container-fluid" id="img"></div>
+
+
+        <!-- Daily reports -->
+        <div class="row g-0 my-5" id="dailyReports">
+            <div class="col-12">
+                    <h3 class=" text-center">Daily Reports</h3>
+            </div>
+        </div>
+
+        <div class="card mb-3 m-auto" style="max-width: 650px;">
+            <div class="row g-0 p-3">
+              <div class="col-md-4 p-3">
+                <label class="mb-4 fs-5">Choose Date:</label>
+                <input type="date" >
+              </div>
+              <div class="col-md-8">
+                <div class="card-body h-100 row align-items-center">
+
+                  <h5 class="card-title noReport text-center">No Data</h5>
+
+                  <div class="card-text" id="dayReport">
+                    <div class="row g-0 mb-2">
+                        <div class="col-6">Attend time:</div>
+                        <div class="col-6" id="checkIn"></div>
+                    </div>
+                    <div class="row g-0 mb-2">
+                        <div class="col-6">Departure time:</div>
+                        <div class="col-6" id="checkOut"></div>
+                    </div>
+                    <div class="row g-0 mb-2">
+                        <div class="col-6">Late:</div>
+                        <div class="col-6" id="late"></div>
+                    </div>
+                    <div class="row g-0 mb-2">
+                        <div class="col-6">Excuse:</div>
+                        <div class="col-6" id="excuse"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+<pre>
+
+    
+</pre>
+
+        <!-- Monthly reports -->
+        <div class="row g-0 my-5" id="monthlyReports">
+            <div class="col-12">
+                    <h3 class=" text-center">Monthly Reports</h3>
+            </div>
+        </div>
+
+        <div class=" container">
+            <div class="row">
+                <div class="">
+                    <label class="mb-4 fs-5">Choose Month: </label>
+                    <input type="month" class="mx-4">
+                </div>
+
+                <div>
+                    <h5 class="noReport">No Data</h5>
+
+                    <div id="wrapperTable">
+                        <table id="monthlyTable" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Attend time</th>
+                                    <th>Departure time</th>
+                                    <th>Late</th>
+                                    <th>Excuse</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <p>Number of lates: <span id="lates"></span></p>
+                    <p>Number of Excuses: <span id="excuses"></span></p>
+                    <!-- <input type="button" value="back" id="back"/> -->
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
     </body>
 </html>

@@ -1,4 +1,6 @@
-
+*{
+    color: var(--darkBlue)
+}
 body{
     background-image: linear-gradient(45deg, var(--lightBlue2), var(--lightBlue), var(--purple));
 }
