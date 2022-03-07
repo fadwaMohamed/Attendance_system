@@ -13,7 +13,14 @@
     --white: whitesmoke;
     --grey: rgb(99, 93, 93);
     --lightgrey: #f3f3f3;
+    /* new ones */
+    --purple: #d3b5c8;
+    --darkPurple: #a87a97;
+    --darkBlue: #49576e;
+    --lightBlue: #accffb;
+    --lightGrey: #e3efff;
 }
+
 /* --------------- scroller --------------- */
 ::-webkit-scrollbar {
     width: 10px;

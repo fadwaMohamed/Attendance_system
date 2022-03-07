@@ -14,4 +14,4 @@ with one employee
 
 ------------------------------------
 
-email will be send after admin confirmation.
+email will be sent after admin confirmation.
