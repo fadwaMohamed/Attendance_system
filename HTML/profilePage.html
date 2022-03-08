@@ -21,106 +21,7 @@
 
     </head>
     <body data-bs-spy="scroll" data-bs-target="#home" id="home">
-        <!-- <header id="header">
             
-        </header>
-
-        <aside id="aside">
-            <input type="button" value="Personal Data" id="pData">
-            <input type="button" value="Monthly Reports" id="mReport">
-            <input type="button" value="Daily Reports" id="dReport">
-            <input type="button" value="Log out" id="logOut">
-        </aside>
-
-        <section id="mainSection">
-            <section id="innerSection">
-                <section id="data">
-                    <div class="label">First Name</div>
-                    <div id="firstName"></div>
-                    <div class="label">Last Name</div>
-                    <div id="lastName"></div>
-                    <div class="label">Adress</div>
-                    <div id="address"></div>
-                    <div class="label">Email</div>
-                    <div id="email"></div>
-                    <div class="label">Age</div>
-                    <div id="age"></div>
-                </section>
-
-                <section id="monthly">
-                    <div class='calendarHead'>
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <h3> <i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp; <span id="year">2022</span> </h3>
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </div>
-                    <div id="tempHead"></div>
-
-                    <section id="monthly1">
-                        <article id="0" class="calendar">January</article>
-                        <article id="1" class="calendar">February</article>
-                        <article id="2" class="calendar">March</article>
-                        <article id="3" class="calendar">April</article>
-                        <article id="4" class="calendar">May</article>
-                        <article id="5" class="calendar">June</article>
-                        <article id="6" class="calendar">July</article>
-                        <article id="7" class="calendar">August</article>
-                        <article id="8" class="calendar">September</article>
-                        <article id="9" class="calendar">October</article>
-                        <article id="10" class="calendar">November</article>
-                        <article id="11" class="calendar">December</article>
-                    </section>
-
-                    <section id="monthly2">
-                        <h2 class="noReport">No Data</h2>
-                        <div id="wrapperTable">
-                            <table id="monthlyTable" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Attend time</th>
-                                        <th>Departure time</th>
-                                        <th>Late</th>
-                                        <th>Excuse</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                        <h4>Number of lates: <span id="lates"></span></h4>
-                        <h4>Number of Excuses: <span id="excuses"></span></h4>
-                        <input type="button" value="back" id="back"/>
-                    </section>
-                </section>
-
-                <section id="daily">
-                    <div class='calendarHead'>
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <h3> <i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp; <span id="todayDate"></span> </h3>
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </div>
-
-                    <h2 class="noReport">No Data</h2>
-                    <article id="dayReport">
-                        <div>
-                            <div class="label">Attend time:</div>
-                            <div id="checkIn"></div>
-                        </div>
-                        <div>
-                            <div class="label">Departure time:</div>
-                            <div id="checkOut"></div>
-                        </div>
-                        <div>
-                            <div class="label">Late:</div>
-                            <div id="late"></div>
-                        </div>
-                        <div>
-                            <div class="label">Excuse:</div>
-                            <div id="excuse"></div>
-                        </div>
-                    </article>
-                </section>
-            </section>
-        </section> -->
-
         <!-- Nav Bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid">
@@ -143,7 +44,7 @@
                             <a class="nav-link" href="#monthlyReports">Monthly reports</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link" href="#logOut">Log out</a>
+                            <a class="nav-link logOut" href="#logOut">Log out</a>
                         </li>
                     </ul>
                 </div>
@@ -156,24 +57,28 @@
         <!-- home -->
         <div class=" container-fluid" id="img"></div>
 
+<pre>
+
+
+</pre>
 
         <!-- Daily reports -->
-        <div class="row g-0 my-5" id="dailyReports">
-            <div class="col-12">
-                    <h3 class=" text-center">Daily Reports</h3>
+        <div class="row g-0 my-5 justify-content-center" id="dailyReports">
+            <div class="col-6 col-md-3">
+                    <h3 class=" text-center pb-3">Daily Reports</h3>
             </div>
         </div>
 
         <div class="card mb-3 m-auto" style="max-width: 650px;">
             <div class="row g-0 p-3">
-              <div class="col-md-4 p-3">
+              <div class="col-md-4 p-3 border-end">
                 <label class="mb-4 fs-5">Choose Date:</label>
-                <input type="date" >
+                <input type="date" class="px-1">
               </div>
-              <div class="col-md-8">
-                <div class="card-body h-100 row align-items-center">
+              <div class="col-md-8 px-2">
+                <div class="card-body h-100 row align-items-center data">
 
-                  <h5 class="card-title noReport text-center">No Data</h5>
+                  <h5 class="card-title noReport text-danger">No Data...</h5>
 
                   <div class="card-text" id="dayReport">
                     <div class="row g-0 mb-2">
@@ -197,15 +102,16 @@
               </div>
             </div>
         </div>
+        
 <pre>
 
     
 </pre>
 
         <!-- Monthly reports -->
-        <div class="row g-0 my-5" id="monthlyReports">
-            <div class="col-12">
-                    <h3 class=" text-center">Monthly Reports</h3>
+        <div class="row g-0 my-5 justify-content-center" id="monthlyReports">
+            <div class="col-6 col-md-3">
+                    <h3 class=" text-center pb-3">Monthly Reports</h3>
             </div>
         </div>
 
@@ -213,31 +119,43 @@
             <div class="row">
                 <div class="">
                     <label class="mb-4 fs-5">Choose Month: </label>
-                    <input type="month" class="mx-4">
+                    <input type="month" class="mx-4 px-1">
                 </div>
 
-                <div>
-                    <h5 class="noReport">No Data</h5>
+                <div class="data">
+                    <h5 class="noReport text-danger">No Data...</h5>
 
                     <div id="wrapperTable">
                         <table id="monthlyTable" class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Date</th>
-                                    <th>Attend time</th>
-                                    <th>Departure time</th>
-                                    <th>Late</th>
-                                    <th>Excuse</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Attend time</th>
+                                    <th scope="col">Departure time</th>
+                                    <th scope="col">Late</th>
+                                    <th scope="col">Excuse</th>
                                 </tr>
                             </thead>
+                            <tbody>
+
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
                         </table>
+
+                        <p>Number of lates: <span id="lates"></span></p>
+                        <p>Number of Excuses: <span id="excuses"></span></p>
+
                     </div>
-                    <p>Number of lates: <span id="lates"></span></p>
-                    <p>Number of Excuses: <span id="excuses"></span></p>
-                    <!-- <input type="button" value="back" id="back"/> -->
+
                 </div>
             </div>
         </div>
+
+<pre>
+
+
+</pre>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
