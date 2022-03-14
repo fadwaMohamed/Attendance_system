@@ -1,65 +1,40 @@
-#bell{
-    border: none;
-    border-bottom: 2px solid var(--color2);
-}
-.fa-bell{
-    color: var(--color2);
-}
 
-#notification{
-    margin: 40px auto;
-    min-width: 400px;
-    width: 50%;
-    height: 150px;
-    border-radius: 10px;
-    color: var(--grey);
-    background-color: var(--color2);
-    box-shadow: 0 0 30px rgba(44, 67, 110, 0.08);
+.card{
+    max-width: 700px;
+    margin: 30px auto;
+    box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 15px 0px;
+    border: none;
 }
-#notification>h3, #notification>h4{
-    color: var(--white);
-    border-radius: 10px 5px;
-    height: 25px;
-    padding: 1%;
+.card-header{
+    background-color: var(--lightBlue2);
     text-align: center;
+    border: none;
 }
-.data{
-    padding: 1%;
-    width: 100%;
-    height: 100px;
-    border-radius: 0 0 10px 10px;
-    background-color: var(--lightgrey);
+.card-body{
     position: relative;
 }
-.ok, .no{
-    width: 30px;
-    height: 30px;
-    background-color: var(--color2);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+button{
+    background-color: var(--lightBlue2);
+    border: none;
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    transition: all 0.5s;
     position: absolute;
-    transition: all 0.3s;
-}
-.data .fa{
-    color: var(--lightgrey);
+    top: 70%;
 }
 .ok{
-    top: 50px;
-    right: 20px;
+    left: 65%;
 }
 .no{
-    top: 50px;
-    right: 60px;
+    left: 40%;
 }
-
-.ok:hover, .no:hover{
+button:hover{
     cursor: pointer;
+    background-color: inherit;
 }
-
 #noNotification{
-    color: var(--color2);
     text-align: center;
     margin-top: 140px;
     font-size: 2.5rem;

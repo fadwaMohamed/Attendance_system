@@ -6,28 +6,36 @@ window.addEventListener('load', function() {
 
     let section = this.document.getElementById("notifications");
 
+    // if there are new employees
     if(newEmployees.length != 0) {
         for(let i=0; i<newEmployees.length; i++)
         {
             let div1 = document.createElement("div");
-            div1.setAttribute('id', 'notification');
-            let h3 = document.createElement("h3");
-            h3.innerText = 'New Registration';
-            div1.appendChild(h3);
-            let h4 = document.createElement("h4");
-            h4.innerText = 'New employee with the following data: ';
-            div1.appendChild(h4);
-
+            div1.setAttribute('class', 'card');
             let div2 = document.createElement("div");
-            div2.setAttribute('class', 'data');
-            div2.setAttribute('id', `${newEmployees[i].id}`);
-            addInfo(newEmployees[i], div2);
+            div2.setAttribute('class', 'card-header');
+
+            let h5 = document.createElement("h5");
+            h5.innerText = 'New Registration';
+            div2.appendChild(h5);
+            let h6 = document.createElement("h6");
+            h6.innerText = 'New employee with the following data: ';
+            div2.appendChild(h6);
+
             div1.appendChild(div2);
+
+            let div3 = document.createElement("div");
+            div3.setAttribute('class', 'card-body');
+            div3.setAttribute('id', `${newEmployees[i].id}`);
+            addInfo(newEmployees[i], div3);
+
+            div1.appendChild(div3);
 
             section.appendChild(div1);
         }
     }
 
+    // if there aren't new employees
     noNotification(section);
 
     for(let i=0; i< newEmployees.length; i++)
@@ -114,12 +122,12 @@ function addInfo(newemployee, div)
     p.innerText = `Age: ${newemployee['age']}.`;
     div.appendChild(p);
 
-    let div3 = document.createElement("div");
-    div3.setAttribute('class', 'ok');
-    div3.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
-    div.appendChild(div3);
-    div3 = document.createElement("div");
-    div3.setAttribute('class', 'no');
-    div3.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
-    div.appendChild(div3);
+    let button = document.createElement("button");
+    button.setAttribute('class', 'ok');
+    button.innerHTML = 'Confirm';
+    div.appendChild(button);
+    button = document.createElement("button");
+    button.setAttribute('class', 'no');
+    button.innerHTML = 'Ignore';
+    div.appendChild(button);
 }

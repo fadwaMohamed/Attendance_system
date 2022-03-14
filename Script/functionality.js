@@ -1,4 +1,4 @@
-import { employees, securityMan, admins } from "./retrieve_user.js";
+import { newEmployees, employees, securityMan, admins } from "./retrieve_user.js";
 
 
 // for any type of users (employee && admin)
@@ -59,7 +59,7 @@ function validEmail(email) {
     return email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/);
 }
 function validAge(age) {
-    return age.match(/^[2-5][0-9]|60$/);
+    return age.match(/^[2-5][0-9]$|^60$/);
 }
 
 function generateRandomNumber(max, min) {
@@ -84,5 +84,35 @@ function isUniquePassword(inputToCheck) {
     return 1;
 }
 
+function validInput(inputname, isvalid, j=-1) {
+    inputname.addEventListener('keyup', function() {
+        if(inputname.id=="email" || inputname.id == "Email") {
+            if(!isUniqueEmail(employees, inputname.value, j) || !isUniqueEmail(newEmployees, inputname.value, j)) {
+                inputname.nextElementSibling.textContent = "Exist Email"
+                if(!inputname.classList.contains("is-invalid")) inputname.classList.add("is-invalid");
+            }
+            else if(!isvalid(inputname.value)) {
+                inputname.nextElementSibling.textContent = "Invalid Email";
+                if(!inputname.classList.contains("is-invalid")) inputname.classList.add("is-invalid");
+            }
+            else {
+                inputname.nextElementSibling.textContent = "Invalid Email";
+                if(inputname.classList.contains("is-invalid")) inputname.classList.remove("is-invalid");
+                
+                inputname.classList.add("is-valid");
+            }
+        }
+        else {
+            if(!isvalid(inputname.value)) {
+                if(!inputname.classList.contains("is-invalid")) inputname.classList.add("is-invalid");
+            }
+            else {
+                if(inputname.classList.contains("is-invalid")) inputname.classList.remove("is-invalid");
+                
+                inputname.classList.add("is-valid");
+            }
+        }
+    })
+}
 
-export { isAdminExist, isEmployeeExist, isInputEmpty, isPasswordRight, isPasswordRightSecurity, validAddress, validEmail, validName, validAge, generateRandomNumber, isUniquePassword, isUniqueEmail, isUniqueUsername };
+export { validInput, isAdminExist, isEmployeeExist, isInputEmpty, isPasswordRight, isPasswordRightSecurity, validAddress, validEmail, validName, validAge, generateRandomNumber, isUniquePassword, isUniqueEmail, isUniqueUsername };

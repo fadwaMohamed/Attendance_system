@@ -51,3 +51,11 @@ thead{
     font-size: 1.2rem; 
     padding-left: 0.25rem;
 }
+tbody>tr:hover{
+    background-color: var(--lightBlue2) !important;
+}
+@media all and (min-width:768px) {
+    .bor-end{
+        border-right: 1px solid var(--darkPurple);
+    }
+}

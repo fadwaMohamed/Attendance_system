@@ -3,7 +3,6 @@ import { isInputEmpty, isEmployeeExist } from "./functionality.js";
 import { reportsEmp, saveReports, allEmpReports } from "./reports.js"
 
 
-console.log(employees)
 window.addEventListener('load', function() {
     let username = document.getElementById("username");
 
@@ -27,13 +26,12 @@ window.addEventListener('load', function() {
             username.nextElementSibling.textContent = "Invalid Username";
             username.nextElementSibling.style.opacity = 1;
             setTimeout('username.nextElementSibling.style.opacity = 0;', 4000)
-            username.parentElement.style.height = "65%";
         }
         else {
             event.preventDefault();
 
             username.nextElementSibling.style.opacity = 0;
-            username.parentElement.style.height = "60%";
+
 
             // check if attended before or not
 
@@ -49,7 +47,6 @@ window.addEventListener('load', function() {
                     username.nextElementSibling.style.opacity = 1;
                     username.nextElementSibling.textContent = "already attended today!!";
                     setTimeout('username.nextElementSibling.style.opacity = 0;', 4000);
-                    username.parentElement.style.height = "65%";
                 }
             }
             // departure

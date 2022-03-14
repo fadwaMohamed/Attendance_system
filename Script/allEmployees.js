@@ -1,11 +1,7 @@
-import { employees, saveEmployeeData } from './retrieve_user.js'
+import { employees, newEmployees, saveEmployeeData } from './retrieve_user.js'
 import { reportsEmp, allEmpReports, saveReports } from './reports.js'
-import { validAddress, validEmail, validName, validAge, generateRandomNumber, isUniquePassword, isUniqueEmail } from './functionality.js'
+import { validInput, validAddress, validEmail, validName, validAge, generateRandomNumber, isUniquePassword, isUniqueEmail } from './functionality.js'
 
-
-let color1 = '#f3f3f3';
-let color2 = '#fff';
-let color3 = 'rgb(99, 93, 93)';
 
 let flag = {"firstName":0,
             "lastName":0,
@@ -20,157 +16,118 @@ window.addEventListener('load', function() {
     let tBody = document.getElementById("allEmployees").children[1]
     for(let i=0; i<employees.length; i++)
     {
-        addRowReport(tBody, employees[i], employees);
+        addRowEmployee(tBody, employees[i], employees);
     }
 
     // delete employee
+    let clickedTr = null;
     let delete_emp = document.getElementsByClassName("delete");
     for(let n=0; n<employees.length; n++)
     {
         delete_emp[n].addEventListener("click", function() {
-            if(confirm("are you sure?")) {
-                let currenttr = this.parentNode.parentNode;
-                
-                let index = ([].slice.call(currenttr.parentNode.children).indexOf(currenttr));
-
-                for(let i=0; i<allEmpReports.length; i++)
-                {
-                    if(allEmpReports[i]['id'] == currenttr.id) allEmpReports.splice(i, 1);
-                }
-
-                employees.splice(index, 1);
-                currenttr.remove();
-                saveEmployeeData(employees);
-                saveReports(allEmpReports);
-            }
+            clickedTr = this.parentNode.parentNode;
         });
     }
+    // delete modal 
+    document.getElementById("delete").addEventListener("click", () => {
+        // close modal
+        $('#modalDelete').modal('hide');
+        
+        let index = ([].slice.call(clickedTr.parentNode.children).indexOf(clickedTr));
+
+        for(let i=0; i<allEmpReports.length; i++)
+        {
+            if(allEmpReports[i]['id'] == clickedTr.id) allEmpReports.splice(i, 1);
+        }
+
+        employees.splice(index, 1);
+        clickedTr.remove();
+        saveEmployeeData(employees);
+        saveReports(allEmpReports);
+    });
 
     // edit employee data
+    let firstname, lastname, address, email, age, updateIndex, inputs;
     let update_emp = document.getElementsByClassName("edit");
     for(let n=0; n<employees.length; n++)
     {
         update_emp[n].addEventListener("click", function() {
+
+            //delete previous validation box
+            inputs = document.querySelectorAll("#editEmployee input");
+            inputs.forEach((inp) => {
+                inp.classList.remove("is-invalid");
+                inp.classList.remove("is-valid");
+            })
+
             let currenttr = this.parentNode.parentNode;
-            var index = ([].slice.call(currenttr.parentNode.children).indexOf(currenttr));
+            updateIndex = ([].slice.call(currenttr.parentNode.children).indexOf(currenttr));
+            // put current employee data in the modal
+            firstname = document.getElementById("Firstname");
+            lastname = document.getElementById("Lastname");
+            address = document.getElementById("Address");
+            email = document.getElementById("Email");
+            age = document.getElementById("Age");
             
-            // display inputs
+            // put employee data in modal
             let inp = 0;
             for(let j in employees[0])
             {
                 if(j == "userName") break;
-
-                currenttr.children[inp].querySelector("input").style.backgroundColor = color1;
-                currenttr.children[inp].querySelector("input").style.display = "inline";
-                currenttr.children[inp].querySelector("input").value = employees[index][j];
-                if(inp==0) currenttr.children[inp].querySelector("input").focus();
+                inputs[inp].value = employees[updateIndex][j];
                 inp++;
-                
             }
 
-            // select three buttons (update 0, save 1, cancel 2)
-            let buttons = currenttr.children[7].children;
-            // hide update button
-            buttons[0].style.display = "none";
-            // display save, cancel buttons
-            buttons[1].style.display = "inline";
-            buttons[2].style.display = "inline";              
+            // keyup validation
+            validInput(firstname, validName);
+            validInput(lastname, validName);
+            validInput(address, validAddress);
+            validInput(email, validEmail, updateIndex);
+            validInput(age, validAge);
         });
     }
-
-    let error_mes = document.getElementById("error");
-    ////// save button
-    let savebuttons = document.getElementsByClassName("save");
-    for(let n=0; n<employees.length; n++){
-        savebuttons[n].addEventListener("click", function() {
-            let currenttr = this.parentNode.parentNode;                          
-            let valid_flag = 1;
-            let index = ([].slice.call(currenttr.parentNode.children).indexOf(currenttr));
-            let inp=0;
+    ////// save updated data
+    document.getElementById("save").addEventListener("click", function() {
+        if(validName(firstname.value) && validName(lastname.value) && validAddress(address.value) && validEmail(email.value) && validAge(age.value) && isUniqueEmail(employees, email.value, updateIndex) && isUniqueEmail(newEmployees, email.value, updateIndex))
+        {
+            // update employee data
+            let inp = 0;
             for(let j in employees[0])
             {
-                if(j == 'userName') break;
-
-                let currentcell =  currenttr.children[inp];
-                if(!valid(currentcell.querySelector("input").value, j, index)){
-                    error_mes.style.display = "block";
-                    error_mes.innerText = "invalid ".concat(j);
-                    currentcell.querySelector("input").focus();
-                    valid_flag = 0;
-                    break;
-                }
+                if(j == "userName") break;
+                employees[updateIndex][j] = inputs[inp].value;
                 inp++;
             }
-            
-            // case all data valid
-            if(valid_flag==1){
-                error_mes.style.display = "none";
-                inp=0;
-                for(let j in employees[0])
-                {
-                    if(j == "userName") break;
+            // save changes
+            saveEmployeeData(employees);
+            displaytable();
 
-                    let currentcell =  currenttr.children[inp];
-                    let newvalue = currentcell.querySelector("input").value;
-                    // update array
-                    employees[index][j] = newvalue;
-                    // update table
-                    currentcell.querySelector("span").innerText = newvalue;
-                    // clear and hide input
-                    currentcell.querySelector("input").value = "";
-                    currentcell.querySelector("input").style.display = "none";
-                    // change buttons
-                    let buttons = currenttr.children[7].children;
-                    buttons[0].style.display = "inline";
-                    buttons[1].style.display = "none";
-                    buttons[2].style.display = "none";
+            $('#editEmployee').modal('hide');
+        }
+    });
 
-                    currenttr.children[inp].style.backgroundColor = color2;
-                    inp++;
-                    
-                }
-                // save changes
-                saveEmployeeData(employees);
-            }
-        });
-    }
-    
-    ////// cancel button
-    let cancelbuttons = document.getElementsByClassName("cancel")
-    for(let n=0; n<employees.length; n++){
-        cancelbuttons[n].addEventListener("click", function() {
-            let currenttr = this.parentNode.parentNode;
-            // change buttons
-            let buttons = currenttr.children[7].children;
-            buttons[0].style.display = "inline";
-            buttons[1].style.display = "none";
-            buttons[2].style.display = "none";
-            // hide any error message
-            error_mes.style.display = "none";
-            // hide input & show old data
-            for(let inp=0; inp<5; inp++)
-            {
-                currenttr.children[inp].querySelector("input").value = "";
-                currenttr.children[inp].querySelector("input").style.display = "none";
-                currenttr.children[inp].style.backgroundColor = color2;
-            }
-        });          
-    }
-
-    // chande password of any employee
+    // change password of any employee
+    let clickedPass = -1;
     for(let i=0; i<employees.length; i++)
     {
-        document.getElementsByClassName("changePass")[i].addEventListener('click', function() {
-            let randomPassword;
-            do{
-                randomPassword = `${generateRandomNumber(10000000, 99999999)}`;
-            }while(!isUniquePassword(randomPassword));
-
-            employees[i].password = randomPassword;
-            alert(`this is the new password ${randomPassword}`);
-            saveEmployeeData(employees);
-        })
+        clickedPass = i;
     }
+    // modal password
+    document.getElementById("changePassword").addEventListener('click', () => {
+        // close modal
+        $('#modalPassword').modal('hide');
+        $('#modalPassInfo').modal('show');
+
+        let randomPassword;
+        do{
+            randomPassword = `${generateRandomNumber(10000000, 99999999)}`;
+        }while(!isUniquePassword(randomPassword));
+
+        employees[clickedPass].password = randomPassword;
+        saveEmployeeData(employees);
+
+        $('#modalPassInfo #newPassInfo').text(`This is the new password: ${randomPassword}`);
+    })
 
     // sorting buttons (th)
     let allth = document.getElementsByTagName("thead")[0].children[0].children;
@@ -222,7 +179,7 @@ function valid(text, j, n){
     else return (validEmail(text) && isUniqueEmail(employees, text, n));
 }
 
-function addRowReport(tBody, currentEmp) 
+function addRowEmployee(tBody, currentEmp) 
 {
     let newTr = document.createElement("tr");
     newTr.setAttribute('id', currentEmp['id']);
@@ -235,45 +192,28 @@ function addRowReport(tBody, currentEmp)
         let newSpan = document.createElement("span");
         newSpan.innerText = currentEmp[j];
         newTd.appendChild(newSpan);
-        // create hidden input
-        var newinput = document.createElement("input");
-        newinput.setAttribute("type", "text");
-        newinput.setAttribute("class", j);
-        newTd.appendChild(newinput);
-        
         newTr.appendChild(newTd);
     }
     // change password
-    newTd = document.createElement("td");
-    newTd.setAttribute('class', 'buttons');
-    createbutton('New', newTd, 'changePass');
-    newTr.appendChild(newTd);
+    createbutton('New', newTr, 'changePass', '#modalPassword');
     // edit
-    newTd = document.createElement("td");
-    newTd.setAttribute('class', 'buttons');
-    createbutton(`<i class="fa fa-pencil" aria-hidden="true"></i>`, newTd, 'edit');
-    createbutton(`<i class="fa fa-check" aria-hidden="true"></i>`, newTd, 'save');
-    createbutton(`<i class="fa fa-times" aria-hidden="true"></i>`, newTd, 'cancel');
-    newTr.appendChild(newTd);
+    createbutton(`<i class="fa-solid fa-pen-to-square"></i>`, newTr, 'edit', '#editEmployee');
     // delete
-    newTd = document.createElement("td");
-    newTd.setAttribute('class', 'buttons');
-    createbutton(`<i class="fa fa-trash" aria-hidden="true"></i>`, newTd, 'delete');
-    newTr.appendChild(newTd);
-
-    let newDiv = document.createElement("div");
-    newDiv.setAttribute('id', "error");
-    newTr.appendChild(newDiv);
+    createbutton(`<i class="fa-solid fa-trash-can"></i>`, newTr, 'delete', '#modalDelete');
 
     tBody.appendChild(newTr);
 
 }
 
-function createbutton(value, parent, classname){
+function createbutton(value, parent, classname, modalId){
+    let newTd = document.createElement("td");
+    newTd.setAttribute('data-bs-toggle', 'modal');
+    newTd.setAttribute('data-bs-target', modalId);
     let button = document.createElement("button");
     button.innerHTML = value;
     button.setAttribute("class", classname)
-    parent.appendChild(button);
+    newTd.appendChild(button);
+    parent.appendChild(newTd);
 }
 
 // display data after sorting

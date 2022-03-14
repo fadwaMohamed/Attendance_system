@@ -1,6 +1,6 @@
 import {saveEmployeeData, employees, newEmployees, saveNewEmpData} from "./retrieve_user.js";
 import { employee } from "./user.js";
-import { validAddress, validEmail, validName, validAge, generateRandomNumber, isUniquePassword, isUniqueEmail, isUniqueUsername } from './functionality.js'
+import { validInput, validAddress, validEmail, validName, validAge, generateRandomNumber, isUniquePassword, isUniqueEmail, isUniqueUsername } from './functionality.js'
 
 window.addEventListener('load', function() {
     let firstname = document.getElementById("firstname");
@@ -16,8 +16,8 @@ window.addEventListener('load', function() {
     validInput(age, validAge);
 
     document.forms[0].addEventListener('submit', function(event) {
-
-        if(!validName(firstname.value) || !validName(lastname.value) || !validAddress(address.value) || !validEmail(email.value) || !validAge(age.value) || !isUniqueEmail(email.value, email))
+        console.log(isUniqueEmail(employees, email.value))
+        if(!validName(firstname.value) || !validName(lastname.value) || !validAddress(address.value) || !validEmail(email.value) || !validAge(age.value) || !isUniqueEmail(employees, email.value) || !isUniqueEmail(newEmployees, email.value))
             event.preventDefault();
         else {
             event.preventDefault();
@@ -40,38 +40,6 @@ window.addEventListener('load', function() {
     })
 
 })
-
-
-function validInput(inputname, isvalid) {
-    inputname.addEventListener('blur', function() {
-        if(inputname.id=="email") {
-            if(!isUniqueEmail(employees, inputname.value, -1) || !isUniqueEmail(newEmployees, inputname.value, -1)) {
-                inputname.nextElementSibling.textContent = "Exist Email"
-                if(!inputname.classList.contains("is-invalid")) inputname.classList.add("is-invalid");
-            }
-            else if(!isvalid(inputname.value)) {
-                inputname.nextElementSibling.textContent = "Invalid Email";
-                if(!inputname.classList.contains("is-invalid")) inputname.classList.add("is-invalid");
-            }
-            else {
-                inputname.nextElementSibling.textContent = "Invalid Email";
-                if(inputname.classList.contains("is-invalid")) inputname.classList.remove("is-invalid");
-                
-                inputname.classList.add("is-valid");
-            }
-        }
-        else {
-            if(!isvalid(inputname.value)) {
-                if(!inputname.classList.contains("is-invalid")) inputname.classList.add("is-invalid");
-            }
-            else {
-                if(inputname.classList.contains("is-invalid")) inputname.classList.remove("is-invalid");
-                
-                inputname.classList.add("is-valid");
-            }
-        }
-    })
-}
 
 
 function convertIntoObject(firstname, lastname, address, email, age, randomUsername, randomPassword, attend, id)
